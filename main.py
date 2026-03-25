@@ -15,6 +15,7 @@ from typing import List
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 from models import EncuestaCompleta, EncuestaAlmacenada, Estadisticas
 
@@ -29,6 +30,14 @@ app = FastAPI(
     title="API de Gestion de Encuestas Poblacionales",
     description="Sistema de recoleccion y validacion rigurosa de datos demograficos.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 db: dict[int, EncuestaAlmacenada] = {}
@@ -76,6 +85,11 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
             "errores": errores,
         },
     )
+
+
+@app.get("/")
+async def root():
+    return {"estado": "activo"}
 
 
 @app.post("/encuestas/", response_model=EncuestaAlmacenada, status_code=201,

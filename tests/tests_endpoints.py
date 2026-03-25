@@ -15,9 +15,11 @@ encuesta_valida = {
         "ocupacion": "docente"
     },
     "respuestas": [
-        {"id_pregunta": "P001", "tipo_pregunta": "likert", "valor": 4, "comentario": None},
-        {"id_pregunta": "P002", "tipo_pregunta": "porcentaje", "valor": 80.0, "comentario": None},
-        {"id_pregunta": "P003", "tipo_pregunta": "abierta", "valor": "Buena atencion", "comentario": None}
+        {"id_pregunta": "P01", "tipo_pregunta": "likert",     "valor": 4,    "comentario": None},
+        {"id_pregunta": "P02", "tipo_pregunta": "likert",     "valor": 3,    "comentario": None},
+        {"id_pregunta": "P03", "tipo_pregunta": "porcentaje", "valor": 30.0, "comentario": None},
+        {"id_pregunta": "P04", "tipo_pregunta": "porcentaje", "valor": 4,    "comentario": None},
+        {"id_pregunta": "P05", "tipo_pregunta": "abierta",    "valor": "Falta de empleo", "comentario": None}
     ]
 }
 
